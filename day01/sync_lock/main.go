@@ -7,11 +7,13 @@ import (
 //竞争
 var wg sync.WaitGroup
 var v = 0
-
+var m sync.Mutex
 func f(){
-	for i:=0;i<5000;i++ {
-		v += i
+	m.Lock()
+	for i:=0;i<100000;i++ {
+		v += 1
 	}
+	m.Unlock()
 	defer wg.Done()
 }
 
