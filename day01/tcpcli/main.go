@@ -1,11 +1,15 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
-	"go_web/day01/proto"
 	"net"
+	"os"
+	"strings"
 )
 
+/*
+//解决占包
 func main() {
 	conn, err := net.Dial("tcp", "127.0.0.1:30000")
 	if err != nil {
@@ -22,8 +26,8 @@ func main() {
 		}
 		conn.Write(data)
 	}
-}
-/*
+}*/
+
 func main(){
 	conn,err := net.Dial("tcp","0.0.0.0:20000")
 	if err != nil {
@@ -38,9 +42,8 @@ func main(){
 		if strings.ToUpper(input) == "Q" {
 			return
 		}
-		fmt.Println("send ready:",input,len(input))
+		fmt.Printf("send ready %d :%s \n",len(input),input)
 		n,err := conn.Write([]byte(input))
-		fmt.Println(n)
 		if err != nil {
 			fmt.Println("write data err")
 			return
@@ -53,4 +56,4 @@ func main(){
 		}
 		fmt.Println(string(buf[:n]))
 	}
-}*/
+}
