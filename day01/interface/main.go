@@ -12,6 +12,10 @@ type Animal interface {
 type Dog struct {
 	Name string
 }
+//直接返回接口类型
+func NewDog(name string) Animal {
+	return Dog{Name:name}
+}
 
 //Say say
 func (d Dog) Say() {
@@ -26,6 +30,10 @@ func (d Dog) Run() {
 //Cat 类
 type Cat struct {
 	Name string
+}
+//返回接口类型
+func NewCat(name string) Animal {
+	return Cat{Name:name}
 }
 
 //Say 说
@@ -44,16 +52,8 @@ func Say(s Animal) {
 }
 
 func main() {
-	var (
-		d Dog
-		c Cat
-	)
-	d = Dog{
-		Name: "阿黄",
-	}
-	c = Cat{
-		Name: "小咪",
-	}
-	Say(d)
-	Say(c)
+	a := NewDog("阿黄")
+	a.Say()
+	a = NewCat("小咪")
+	a.Say()
 }
