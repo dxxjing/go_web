@@ -1,9 +1,11 @@
+//当前目录下的user.proto 生成go文件到上级目录的pb下
+//protoc --go_out=plugins=grpc:../pb user.proto
 
 syntax = "proto3";
 
-package user
+package pb;
 
-service UserService {
+service User {
     rpc getUserInfo(UserInfoReq) returns (UserInfoRsp) {}
 }
 
