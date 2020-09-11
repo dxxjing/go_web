@@ -72,6 +72,7 @@ func srv3(){
 	http.DefaultServeMux.HandleFunc("/test6",func(w http.ResponseWriter,r *http.Request){
 		fmt.Fprintf(w, "Hello, %q", html.EscapeString(r.URL.Path))
 	})
+	//启动监听 必须指定handler
 	log.Fatal(http.ListenAndServe(":8080",http.DefaultServeMux))
 }
 
