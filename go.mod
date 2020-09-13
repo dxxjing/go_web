@@ -1,29 +1,23 @@
 module go_web
 
-//使用 go mod 就无需将项目建立在gopath下
-
-//项目迁移使用go mod步骤：以 go_web 项目为例
-
-//1、项目 执行 go mod init go_web  会向当前目录下的go_web内添加go mod文件
-
-//2、cd go_web ;  go mod tidy  拉取必须模块 移出不用模块
-
 go 1.15
 
 require (
+	github.com/coreos/etcd v3.3.25+incompatible
+	github.com/dustin/go-humanize v1.0.0 // indirect
 	github.com/gin-gonic/gin v1.6.3
+	github.com/go-acme/lego/v3 v3.9.0
 	github.com/go-redis/redis v6.15.9+incompatible
 	github.com/go-sql-driver/mysql v1.5.0
 	github.com/golang/protobuf v1.4.2
 	github.com/jinzhu/gorm v1.9.16
 	github.com/jmoiron/sqlx v1.2.0
+	github.com/micro/go-micro v1.18.0
 	github.com/nsqio/go-nsq v1.0.8
-	github.com/onsi/ginkgo v1.14.0 // indirect
 	github.com/satori/go.uuid v1.2.0
-	golang.org/x/net v0.0.0-20200822124328-c89045814202 // indirect
-	golang.org/x/sys v0.0.0-20200831180312-196b9ba8737a // indirect
-	golang.org/x/text v0.3.3 // indirect
-	google.golang.org/genproto v0.0.0-20200903010400-9bfcb5116336 // indirect
-	google.golang.org/grpc v1.31.1
-	google.golang.org/protobuf v1.25.0 // indirect
+	go.etcd.io/etcd v3.3.25+incompatible
+	google.golang.org/grpc v1.32.0
+	google.golang.org/grpc/examples v0.0.0-20200910201057-6591123024b3 // indirect
 )
+//为解决etcd 报错问题
+replace google.golang.org/grpc => google.golang.org/grpc v1.26.0

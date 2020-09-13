@@ -1,0 +1,21 @@
+//当前目录下的user.proto 生成go文件到上级目录的pb下
+// protoc -I . --micro_out=../pb  --go_out=../pb ./user.proto
+
+syntax = "proto3";
+
+package pb;
+
+service User {
+    rpc getUserInfo(UserInfoReq) returns (UserInfoRsp) {}
+}
+
+message UserInfoReq {
+    string name = 1;
+}
+
+message UserInfoRsp {
+    int64 id = 1;
+    string name = 2;
+    repeated string hobby = 3;
+}
+
