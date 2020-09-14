@@ -12,7 +12,7 @@ func main(){
 	r := gin.Default()
 	//异步执行 无需waitgroup
 	r.GET("/async",func(c *gin.Context){
-		//注意：这里子goroutine必须使用gin.Context副本,否则会出问题
+		//注意：这里子goroutine必须使用gin.Context副本,否则会出问题 例如在协程内c.Set("name","小明") 由于协程未返回 此时在协程外是无法获取到
 		//var wg sync.WaitGroup
 		tmpContext := c.Copy()
 		//异步执行
