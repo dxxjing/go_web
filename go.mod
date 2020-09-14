@@ -1,6 +1,6 @@
 module go_web
 
-go 1.15
+go 1.13
 
 require (
 	github.com/coreos/etcd v3.3.25+incompatible
@@ -19,5 +19,6 @@ require (
 	google.golang.org/grpc v1.32.0
 	google.golang.org/grpc/examples v0.0.0-20200910201057-6591123024b3 // indirect
 )
+
 //为解决etcd 报错问题
 replace google.golang.org/grpc => google.golang.org/grpc v1.26.0
