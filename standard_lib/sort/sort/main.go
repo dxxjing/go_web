@@ -27,10 +27,10 @@ func main(){
 
 //自定义类型排序
 func mysort(){
-	var s = []int{1,4,9,5,3}
-	sort.Sort(mySlice(s))
+	var s = mySlice{1,4,9,5,3}
+	sort.Sort(s)
 	fmt.Println(s)
-	sort.Sort(sort.Reverse(mySlice(s)))
+	sort.Sort(sort.Reverse(s))
 	fmt.Println(s)
 }
 
